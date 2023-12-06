@@ -1,0 +1,318 @@
+/* Define Global Colors */
+:root {
+    --white: #F4F4F8;
+    --gray: #E6E6EA;
+    --red: #F45B69;
+    --purple: #664AE3;
+    --black: #2B2D42;
+    --proj1: #002A4A;
+    --proj1-light: rgb(0, 42, 74, 0.3);
+    --proj2: #860513;
+    --proj2-light: rgb(134, 5, 19, 0.3);
+    --proj3: #FFCD04;
+    --proj3-light: rgb(255, 205, 4, 0.3);
+    --proj4: #0A5F29;
+    --proj4-light: rgb(10, 95, 41, 0.3);
+    --border-radius: 12px;
+}
+
+/* SKIP TO MAIN */
+.skip a{
+    position: absolute;
+    top: -40px;
+    background: white;
+    left: 0;
+    padding: 6px;
+    z-index: 2;
+}
+
+*:focus {
+    border: 2px solid var(--black);
+}
+
+.skip a:focus {
+    top: 20px;
+}
+
+/* NAVIGATION BAR */
+/* for mobile, elements in nav are centered */
+nav {
+    padding: 20px 0px;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    color: var(--black);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0px 2px 10px gray;
+    z-index: 1;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.nav-item {
+    padding: 0px 20px;
+}
+
+/* bold and underline the linke of current page */
+.current {
+    font-weight: 800;
+    text-decoration: double underline;
+}
+/* open-in-new window icon for resume */
+.nav-icon {
+    color: var(--black);
+    font-size: 14px;
+}
+
+/* BODY */
+body {
+    background: var(--gray);
+}
+
+main {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Poppins, sans-serif;
+    background: var(--gray);
+    color: var(--black);
+    margin-top: 60px;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 400;
+    padding: 20px 0px;
+}
+
+.h1-icon {
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+/* waving-hand icon on home page */
+#h1-hand {
+    color: var(--purple);
+}
+
+#h1-hand:hover {
+    animation: wave 2s infinite;
+    transform-origin: 0% 70%;
+}
+
+h2 {
+    font-size: 20px;
+    padding: 20px 10px;
+}
+
+.h2-icon {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+/* down-arrow icon on home page */
+#h2-down {
+    color: var(--black);
+}
+
+#h2-down:hover {
+    animation: bounce 0.7s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+/* PROJECT TILES */
+/* flex container for all projects */
+/* for mobile, projects arranged in a single column */
+.proj-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: space-around;
+    padding: 10px;
+}
+
+/* individual project tiles */
+/* for mobile, info in each project tile arranged as a row (image | text) */
+.proj {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    margin: 20px 0px;
+    box-shadow: 2px 2px 10px gray;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-items: center;
+    align-content: space-between;
+}
+
+.proj:first-child {
+    margin-top: 0px;
+}
+
+/* tiles pop out with a colorful box shadow when hovered over */
+.pop {
+    transition: all .2s ease-in-out;
+}
+
+.proj:hover {
+    box-shadow: 0px 0px 10px var(--purple);
+}
+
+.pop:hover {
+    transform: scale(1.08);
+}
+
+/* elements in each project tile */
+.cover {
+    max-width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.proj-info {
+    padding: 4%;
+    text-wrap: wrap;
+    font-size: 14px;
+}
+
+.proj-info * {
+    text-wrap: wrap;
+}
+
+.proj-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.proj-summary {
+    padding-top: 3%;
+}
+
+/* Desktop View */
+@media screen and (min-width: 900px) {
+    nav ul {
+        justify-content: flex-end;
+        padding-right: 40px;
+    }
+
+    .proj-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .proj {
+        flex-direction: column;
+        flex-basis: 48%;
+    }
+
+    .cover {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: stretch;
+        max-width: none;
+        flex-basis: 50%;
+        border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+    }
+
+    .proj:nth-child(2) {
+        margin-top: 0px;
+    }
+}
+
+@media (prefers-reduced-motion) {
+    /* don't have project tiles pop out */
+    .pop {
+        transition: none;
+    }
+
+    .pop:hover {
+        transform: none;
+    }
+}
+
+
+
+@keyframes bounce {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 50%, 0);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0.0deg);
+    }
+    10% {
+        transform: rotate(20.0deg);
+    }
+    20% {
+        transform: rotate(-20.0deg);
+    }
+    30% {
+        transform: rotate(20.0deg);
+    }
+    40% {
+        transform: rotate(-15.0deg);
+    }
+    50% {
+        transform: rotate(15.0deg);
+    }
+    60% {
+        transform: rotate(0.0deg);
+    }
+    100% {
+        transform: rotate(0.0deg);
+    }
+}
+
+#proj1:hover {
+    box-shadow: 0px 0px 20px var(--proj1);
+}
+
+#proj2:hover {
+    box-shadow: 0px 0px 20px var(--proj2);
+}
+
+#proj3:hover {
+    box-shadow: 0px 0px 20px var(--proj3);
+}
+
+#proj4:hover {
+    box-shadow: 0px 0px 20px var(--proj4);
+}
+
+#proj1-cover {
+    background-color: var(--proj1-light);
+}
+
+#proj2-cover {
+    background-color: var(--proj2-light);
+}
+
+#proj3-cover {
+    background-color: var(--proj3-light);
+}
+
+#proj4-cover {
+    background-color: var(--proj4-light);
+}

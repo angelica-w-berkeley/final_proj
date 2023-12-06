@@ -1,0 +1,101 @@
+/* TYPING TEXT */
+.type-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* sentence stem */
+.head-type {
+    text-align: center;
+}
+
+/* variable sentence end*/
+.type {
+    text-align: center;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: var(--purple);
+    margin-left: 0.5px;
+    width: 2px;
+    animation: blink 1s infinite;
+}
+
+/* when text is appearing, don't have the cursor blink */
+.typing {
+    animation: none;
+}
+
+/* icons that appear at end of sentences */
+.type-icon {
+    font-size: 24px;
+    vertical-align: middle;
+    color: var(--purple);
+}
+
+/* blinking animation for cursor */
+@keyframes blink {
+    0% {
+        background-color: var(--purple);
+    }
+    49% {
+        background-color: var(--purple);
+    }
+    50% {
+        background-color: transparent;
+    }
+    99% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: var(--purple);
+    }
+}
+
+.info {
+    padding: 40px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.text > p {
+    padding-bottom: 16px;
+}
+
+#headshot {
+    width: 100%;
+    align-self: center;
+}
+
+.has-bold {
+    display: inline;
+}
+
+.bold {
+    display: inline;
+    font-weight: 600;
+}
+
+/* Desktop View */
+@media screen and (min-width: 900px) {
+    .info {
+        padding: 40px 20px 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    #headshot {
+        width: 50%;
+    }
+}
+
+@media (prefers-reduced-motion) {
+    /* don't have blinking cursor */
+    .cursor {
+        animation: none;
+    }
+}
