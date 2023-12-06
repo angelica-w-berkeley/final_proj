@@ -185,12 +185,7 @@ h2 {
 
 .proj-info {
     padding: 4%;
-    text-wrap: wrap;
     font-size: 14px;
-}
-
-.proj-info * {
-    text-wrap: wrap;
 }
 
 .proj-title {
