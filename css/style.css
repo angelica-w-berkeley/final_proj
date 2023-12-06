@@ -240,6 +240,16 @@ h2 {
     .pop:hover {
         transform: none;
     }
+
+    #h1-hand:hover {
+        animation: none;
+        /* transform-origin: 0% 70%; */
+    }
+
+    #h2-down:hover {
+        animation: none;
+        /* animation-direction: alternate; */
+    }
 }
 
 
